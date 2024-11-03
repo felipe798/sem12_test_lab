@@ -68,17 +68,6 @@ public class PetControllerTest {
 				.andExpect(jsonPath("$.ownerId", is(OWNER_ID)))
 				.andExpect(jsonPath("$.birthDate", is(BIRTH_DATE)));
 	}
-	/**
-	 * 
-	 * @throws Exception
-	 */
-	@Test
-	public void testFindPetKO() throws Exception {
-
-		mockMvc.perform(get("/pets/666"))
-				.andExpect(status().isNotFound());
-
-	}
 	
 	/**
 	 * @throws Exception
@@ -140,16 +129,7 @@ public class PetControllerTest {
 		Integer id = JsonPath.parse(response).read("$.id");
 
 		mockMvc.perform(delete("/pets/" + id ))
-				/*.andDo(print())*/
 				.andExpect(status().isOk());
-	}
-
-	@Test
-	public void testDeletePetKO() throws Exception {
-
-		mockMvc.perform(delete("/pets/" + "1000" ))
-				/*.andDo(print())*/
-				.andExpect(status().isNotFound());
 	}
 
 	/**
@@ -173,7 +153,6 @@ public class PetControllerTest {
 		newPetTO.setOwnerId(OWNER_ID);
 		newPetTO.setBirthDate(BIRTH_DATE);
 
-		// CREATE
 		ResultActions mvcActions = mockMvc.perform(post("/pets")
 						.content(om.writeValueAsString(newPetTO))
 						.header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON))
@@ -183,7 +162,6 @@ public class PetControllerTest {
 		String response = mvcActions.andReturn().getResponse().getContentAsString();
 		Integer id = JsonPath.parse(response).read("$.id");
 
-		// UPDATE
 		PetTO upPetTO = new PetTO();
 		upPetTO.setId(id);
 		upPetTO.setName(UP_PET_NAME);

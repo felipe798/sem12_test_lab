@@ -19,10 +19,8 @@ spring:
     # password :      # A$dmin123
 
     # for AWS
-    username :  admin # root
-    password :  A$dmin123
-
-
+    username :  root # root
+    password :
     platform : mysql
     initialization-mode : always
 
