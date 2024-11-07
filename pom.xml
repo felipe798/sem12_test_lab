@@ -90,14 +90,14 @@
 		</dependency>
 		-->
 	</dependencies>
-<!--
-	<distributionManagement>
-		<repository>
-			<id>my-repository</id>
-			<url>https://example.com/repository</url>
-		</repository>
-	</distributionManagement>
--->
+	<!--
+        <distributionManagement>
+            <repository>
+                <id>my-repository</id>
+                <url>https://example.com/repository</url>
+            </repository>
+        </distributionManagement>
+    -->
 	<build>
 		<plugins>
 			<plugin>
