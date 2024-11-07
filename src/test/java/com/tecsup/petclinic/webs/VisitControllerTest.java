@@ -24,7 +24,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @AutoConfigureMockMvc
 @SpringBootTest
 @Slf4j
-public class VisitController {
+public class VisitControllerTest {
 
     private static final ObjectMapper om = new ObjectMapper();
 
